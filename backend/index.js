@@ -11,7 +11,7 @@ require("./database/connect");
 
 app.use(bodyParser.json());
 app.use(cors());
-//app.use('/api/', apiRouter);
+app.use('/api/', apiRouter);
 
 app.listen(process.env.PORT, function(){
     console.log(`Lisning on port ${process.env.PORT}`)

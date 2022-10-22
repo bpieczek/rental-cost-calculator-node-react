@@ -12,7 +12,23 @@ class CarsController{
         res.status(200).json(doc);
     }
     async saveCar(req, res) {
-        res.status(201).json(Car);
+
+        const brand = req.body.brand;
+        const category = req.body.category;
+        const location = req.body.location;
+        const combustion = req.body.combustion;
+        const howManyCars = req.body.howManyCars;
+        
+        let car;
+
+        try{
+            car = new Car({brand,category,location,combustion,howManyCars})
+            await car.save();
+        }catch(err){
+            return res.status(422).json({ message: err.message})
+        }
+        
+        res.status(201).json(car);
     }
 }
 
