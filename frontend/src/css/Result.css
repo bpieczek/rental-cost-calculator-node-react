@@ -1,0 +1,14 @@
+#details {
+	margin: 4em 2em;
+	background: white;
+
+	min-height: 50vh;
+	font-weight: 500;
+	line-height: 1.5;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.final {
+	font-size: 1.3em;
+}

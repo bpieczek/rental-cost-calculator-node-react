@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './App.css';
+import './css/App.css';
 import Carrental from "./components/Carrental"
 import Result from "./components/Result"
 
