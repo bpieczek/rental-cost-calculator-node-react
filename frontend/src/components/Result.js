@@ -5,8 +5,6 @@ const FuelCost = 8;
 const thisYear = new Date().getFullYear();
 
 function Result(props){
-        console.log(props.values);
-
         if(props.values.length !== 0)
         {
             let CarRentalCost = 199.99;
