@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const {MONGO_URL} = require('../config');
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {

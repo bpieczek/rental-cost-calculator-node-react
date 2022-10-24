@@ -5,10 +5,6 @@ import Car from "./Car";
 let Today = new Date().toISOString().split('T')[0];
 const thisYear = new Date().getFullYear();
 
-const miliseconds = 86400000;
-const FuelCost = 8;
-let finalCost = 0;
-let CarRentalCost = 200;
 class Carrental extends React.Component {
        
         constructor(props) {
@@ -43,6 +39,8 @@ class Carrental extends React.Component {
             if(!(this.whenGetDrivinglicence.current.value <= thisYear && this.whenGetDrivinglicence.current.value >= 1950))
                 return alert('Enter the correct year of getting the driving license!')
 
+            if(Date(this.fromDate.current.value).getTime() < Date(this.toDate.current.value).getTime())
+                return alert('Enter the correct dates!')
             
 
             let carToRent = this.state.cars.filter(car => car.brand + " (" + car.category + ")" ===  this.carCategory.current.value);

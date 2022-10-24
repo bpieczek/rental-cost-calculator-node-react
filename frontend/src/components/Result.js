@@ -38,6 +38,7 @@ function Result(props){
                     carCategoryCostMessage += `30% = ${Math.floor(CarRentalCost*100)/100} \n`
                 break;
                 case "Basic":
+                default:
                     carCategoryCostMessage += `0% = ${CarRentalCost} \n`
                 break;
             }

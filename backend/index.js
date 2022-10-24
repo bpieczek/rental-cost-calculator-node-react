@@ -1,7 +1,7 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const {PORT} = require('./config');
 
 const apiRouter = require('./routes/api');
 
@@ -13,6 +13,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/api/', apiRouter);
 
-app.listen(process.env.PORT, function(){
-    console.log(`Lisning on port ${process.env.PORT}`)
+app.listen(PORT, function(){
+    console.log(`Lisning on port ${PORT}`)
 })
