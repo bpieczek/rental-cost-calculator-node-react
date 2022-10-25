@@ -87,7 +87,7 @@ function Result(props) {
     )} + 23% VAT = ${roundToTwoDecimal(CarRentalCost * 1.23)}`;
 
     return (
-      <div id="details">
+      <main id="details">
         <div className="container">
           <p>{timeCostMessage}</p>
           <p>{carCategoryCostMessage}</p>
@@ -96,7 +96,7 @@ function Result(props) {
           <p>{combustionCostMessage}</p>
           <p>{finalCost}</p>
         </div>
-      </div>
+      </main>
     );
   }
 }
