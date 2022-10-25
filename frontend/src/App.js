@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import './css/App.css';
-import Carrental from "./components/Carrental"
-import Result from "./components/Result"
+import Carrental from "./components/Carrental";
+import Result from "./components/Result";
 
 function App() {
   const [values, setValues] = useState([]);
   return (
     <div className="App">
       <Carrental setValues={setValues} />
-      <Result values={values}/>
+      <Result values={values} />
     </div>
   );
 }

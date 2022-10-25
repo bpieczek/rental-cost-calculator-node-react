@@ -53,7 +53,7 @@ class Carrental extends React.Component {
       return alert("Enter the correct year of getting the driving license!");
 
     if (
-      new Date(this.fromDate.current.value).getTime() >
+      new Date(this.fromDate.current.value).getTime() >=
       new Date(this.toDate.current.value).getTime()
     )
       return alert("Enter the correct dates!");
@@ -80,26 +80,40 @@ class Carrental extends React.Component {
           <form onSubmit={(event) => this.onSubmitHandler(event)}>
             <label>
               How many kilometers:{" "}
-              <input ref={this.kilometers} type="number"></input>
+              <input
+                ref={this.kilometers}
+                type="number"
+                required
+                min="0"
+              ></input>
             </label>
 
-            <label>
+            <label
+              data-warning-text={`The value must be between 1950 and ${thisYear}`}
+            >
               The year when you got your driving license:{" "}
-              <input type="number" ref={this.whenGetDrivinglicence}></input>
+              <input
+                type="number"
+                ref={this.whenGetDrivinglicence}
+                required
+                min="1950"
+                max={thisYear}
+              ></input>
             </label>
 
             <div className="together">
               <label>
-                From: <input ref={this.fromDate} type="date" min={Today} />
+                From:{" "}
+                <input ref={this.fromDate} type="date" min={Today} required />
               </label>
               <label>
                 {" "}
-                To: <input ref={this.toDate} type="date" min={Today} />
+                To: <input ref={this.toDate} type="date" min={Today} required />
               </label>
             </div>
             <label>
               Choose a car:
-              <select ref={this.carCategory}>
+              <select ref={this.carCategory} required>
                 {this.state.cars.map((car) => (
                   <Car
                     key={car._id}
@@ -115,7 +129,7 @@ class Carrental extends React.Component {
           </form>
         </div>
 
-        <a href="#details">
+        <a href="#details" tabIndex="-1">
           <span class="material-symbols-outlined">arrow_downward</span>
         </a>
       </header>
