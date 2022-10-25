@@ -74,7 +74,7 @@ class Carrental extends React.Component {
 
   render() {
     return (
-      <div className="hero">
+      <header className="hero">
         <div className="container">
           <h1>Rental car cost calculator!</h1>
           <form onSubmit={(event) => this.onSubmitHandler(event)}>
@@ -118,7 +118,7 @@ class Carrental extends React.Component {
         <a href="#details">
           <span class="material-symbols-outlined">arrow_downward</span>
         </a>
-      </div>
+      </header>
     );
   }
 }
