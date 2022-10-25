@@ -8,7 +8,7 @@
 	padding: 4em 2em;
 
 	position: relative;
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 
 .together {
@@ -34,6 +34,27 @@
 	display: grid;
 	font-weight: 500;
 	text-align: left;
+	position: relative;
+}
+
+.hero form input,
+.hero form select {
+	margin-top: 0.2em;
+	border-radius: 1em;
+	border: none;
+	padding: 0.25em;
+	padding-inline: 0.8em;
+}
+
+.hero :where(input, select, a, button):focus-within {
+	outline: 0.0625em solid black;
+	outline-offset: 0.2em;
+}
+
+.hero form select {
+	-moz-appearance: none; /* Firefox */
+	-webkit-appearance: none; /* Safari and Chrome */
+	appearance: none;
 }
 
 a[href='#details'] {
