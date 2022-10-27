@@ -87,7 +87,7 @@ a[href='#details'] span {
 }
 
 .hero:has(+ #details) a[href='#details'] {
-	transform: translateY(-300%);
+	transform: translateY(-265%);
 }
 
 button[type='submit'] {
@@ -107,15 +107,6 @@ button[type='submit'] {
 }
 button[type='submit']:hover {
 	transform: scale(1.1);
-}
-
-@media screen and (max-width: 40rem) {
-	.hero {
-		min-height: 0;
-	}
-	.hero a[href='#details'] {
-		display: none;
-	}
 }
 
 @media screen and (max-width: 350px) {
