@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Carrental from "./components/Carrental";
-import Result from "./components/Result";
+import React from "react";
+import Calculator from "./pages/calculator";
+import Home from "./pages/home";
 
 function App() {
-  const [values, setValues] = useState([]);
+  
   return (
     <div className="App">
-      <Carrental setValues={setValues} />
-      <Result values={values} />
+      <Home />
+      <Calculator />
     </div>
   );
 }
