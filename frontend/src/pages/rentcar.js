@@ -7,8 +7,7 @@ function onSubmitHandler(event) {
 }
 
 async function sendMail() {
-  const res = await axios.get("/mail");
-  console.log(res);
+  await axios.post("/sendemail");
 }
 
 function Rentcar(props) {
