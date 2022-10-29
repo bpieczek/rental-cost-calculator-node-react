@@ -4,7 +4,7 @@ class CarsController {
   async getAllCars(req, res) {
     let doc;
     try {
-      doc = await await Car.find({});
+      doc = await Car.find({});
     } catch (err) {
       return res.status(500).json({ msg: err.msg });
     }
