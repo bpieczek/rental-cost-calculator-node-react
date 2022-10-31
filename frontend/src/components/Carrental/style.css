@@ -1,6 +1,6 @@
 .hero {
 	--gap: 0.5em;
-
+	font-family: 'Rubik', sans-serif;
 	background: rgb(81, 224, 124);
 	background: linear-gradient(142deg, #51e07c 0%, #00a59a 54%, #2f4858 100%);
 
@@ -19,7 +19,7 @@
 
 .hero h1 {
 	margin-top: 0;
-	font-family: 'Rubik', sans-serif;
+
 	font-weight: 600;
 	font-size: clamp(1.3em, 8vw + 0.5em, 3em);
 }
@@ -28,6 +28,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--gap);
+
 }
 
 .hero form label {
@@ -40,15 +41,21 @@
 .hero form input,
 .hero form select {
 	margin-top: 0.2em;
-	border-radius: 1em;
+	border-radius: 0.5em;
 	border: none;
 	padding: 0.25em;
 	padding-inline: 0.8em;
+	min-height: 44px;
+    font-size: 24px;
+    box-shadow: 4px 4px 0 0 rgb(196 196 196 / 96%);
+    border: 1px solid #e7edf3;
+    background: #fff;
 }
 
+
 .hero :where(input, select, a, button):focus-within {
-	outline: 0.0625em solid black;
-	outline-offset: 0.2em;
+	outline: 0;
+	background-color: #e7edf3;
 }
 
 .hero form select {
