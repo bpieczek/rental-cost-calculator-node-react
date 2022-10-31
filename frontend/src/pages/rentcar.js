@@ -15,7 +15,7 @@ function Rentcar(props) {
     <section>
       <h1>Rentcat page &#128008;</h1>
       <form onSubmit={(event) => onSubmitHandler(event)}>
-        <button type="submit">Send Email!</button>
+        <button type="submit">Rent cars!</button>
       </form>
     </section>
   );
