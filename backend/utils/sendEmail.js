@@ -1,7 +1,7 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 
-const sendEmail = async (subject, message, sendTo, replayTo) => {
+const sendEmail = async (subject, message, sendTo) => {
   let transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
@@ -18,9 +18,8 @@ const sendEmail = async (subject, message, sendTo, replayTo) => {
   const options = {
     from: process.env.EMAIL_USER,
     to: sendTo,
-    replayTo: replayTo,
-    subject: subject, // Subject line
-    text: message, // plain text body
+    subject: subject, 
+    text: message, 
   };
 
   await transporter.sendMail(options, function (err, info) {
