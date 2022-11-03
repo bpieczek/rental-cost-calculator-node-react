@@ -1,0 +1,38 @@
+.Contact {
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+    margin-left: calc(25%);
+}
+.Contact h2 {
+    padding-top: 1em;
+    font-size: 2em;
+}
+.Contact label,
+.Contact input,
+.Contact textarea {
+    display: flex;
+    width: 75%;
+    max-width: 75%;
+    min-width: 75%;
+    margin: auto auto 1.2em;
+    background-color: white;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+.Contact :where(input, select, textarea, button):focus-within {
+	outline: 0;
+    background-color: #eee;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+.Contact button {
+    width: 50%;
+    margin: 1em;
+}

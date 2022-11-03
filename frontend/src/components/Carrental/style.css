@@ -1,6 +1,5 @@
 .hero {
 	--gap: 0.5em;
-	font-family: 'Rubik', sans-serif;
 	background: rgb(81, 224, 124);
 	background: linear-gradient(142deg, #51e07c 0%, #00a59a 54%, #2f4858 100%);
 
@@ -37,21 +36,6 @@
 	text-align: left;
 	position: relative;
 }
-
-.hero form input,
-.hero form select {
-	margin-top: 0.2em;
-	border-radius: 0.5em;
-	border: none;
-	padding: 0.25em;
-	padding-inline: 0.8em;
-	min-height: 44px;
-    font-size: 24px;
-    box-shadow: 4px 4px 0 0 rgb(196 196 196 / 96%);
-    border: 1px solid #e7edf3;
-    background: #fff;
-}
-
 
 .hero :where(input, select, a, button):focus-within {
 	outline: 0;

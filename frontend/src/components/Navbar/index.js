@@ -3,18 +3,18 @@ import { NavLink } from "react-router-dom";
 import "./style.css"
 const Navbar = () => {
   return (
-      <nav>
-          <NavLink to="/">
+      <nav className="ph">
+          <p></p>
+          <NavLink to="/" className="navLink">
             Home
           </NavLink>
-          {" "}|{" "} 
-          <NavLink to="/calculator">
+          <NavLink to="/calculator"  className="navLink">
             Calculator
           </NavLink>
-          {" "}|{" "} 
-          <NavLink to="/rentcar">
+          <NavLink to="/rentcar"  className="navLink">
             Rentcar
           </NavLink>
+          <p></p>
       </nav>
   );
 };
