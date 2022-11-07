@@ -2,13 +2,17 @@ import React from 'react'
 import "./style.css"
 import axios from "../../axios";
 
-function onSubmitHandler(event) {
-    event.preventDefault();
-    sendMail();
+function onSubmitHandler(e) {
+    e.preventDefault();
+    let data = {
+      email: e.target.email.value,
+      message: e.target.message.value
+    }
+    sendMail(data);
 }
   
-async function sendMail() {
-    await axios.post("/sendemail");
+async function sendMail(data) {
+    await axios.post("/sendemail", data);
 }
 
 function Contact() {
@@ -17,7 +21,7 @@ function Contact() {
         <h2>Contact</h2>
         <input type="text" name="name" placeholder='Full Name'/>
 
-        <input type="text" name="name" placeholder='Email'/>
+        <input type="text" name="email" placeholder='Email'/>
         
         <textarea name="message" id="message" cols="30" rows="10" placeholder='Message...'></textarea>
         

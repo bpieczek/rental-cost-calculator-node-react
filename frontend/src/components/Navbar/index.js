@@ -14,6 +14,9 @@ const Navbar = () => {
           <NavLink to="/rentcar"  className="navLink">
             Rentcar
           </NavLink>
+          <NavLink to="/contact"  className="navLink">
+            Contact
+          </NavLink>
           <p></p>
       </nav>
   );

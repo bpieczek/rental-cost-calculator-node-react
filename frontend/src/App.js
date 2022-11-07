@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/home';
 import Calculator from './pages/calculator';
 import Rentcar from './pages/rentcar';
+import Contact from "./pages/contact";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path='/calculator' element={ <Calculator />} />
           <Route path='/rentcar' element={ <Rentcar />} />
+          <Route path='/contact' element={ <Contact />} />
         </Routes>
       </Router>
       <Footer />
