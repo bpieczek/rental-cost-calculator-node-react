@@ -59,15 +59,15 @@ const Carrental = (props) => {
           <label>
             Choose a car:
             <select name="carToRent" required>
-
             {cars && cars.map((car) => (
                 <Car
                   key={car._id}
                   id={car._id}
                   brand={car.brand}
                   category={car.category}
+                  howManyCars={car.howManyCars}
                 />
-              ))}]
+              ))}
             </select>
           </label>
           <button type="submit">Calculate!</button>
