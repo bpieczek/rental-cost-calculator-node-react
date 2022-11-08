@@ -6,6 +6,7 @@ function onSubmitHandler(e) {
   e.preventDefault();
   let data = {
     email: e.target.email.value,
+    subject: `${e.target.email.value} send you a message!`,
     message: e.target.message.value,
   };
   sendMail(data);
@@ -31,7 +32,7 @@ function Contact() {
         placeholder="Message..."
       ></textarea>
 
-      <button type="submit">Rent cars!</button>
+      <button type="submit">Send!</button>
     </form>
   );
 }
