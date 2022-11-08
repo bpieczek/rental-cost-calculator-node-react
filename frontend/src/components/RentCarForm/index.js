@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function RentCarForm() {
-  return (
-    <div>RentCarForm</div>
-  )
+  return <div>RentCarForm</div>;
 }
 
-export default RentCarForm
+export default RentCarForm;

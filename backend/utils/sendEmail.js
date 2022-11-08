@@ -18,8 +18,8 @@ const sendEmail = async (subject, message, sendTo) => {
   const options = {
     from: process.env.EMAIL_USER,
     to: sendTo,
-    subject: subject, 
-    text: message, 
+    subject: subject,
+    text: message,
   };
 
   await transporter.sendMail(options, function (err, info) {
