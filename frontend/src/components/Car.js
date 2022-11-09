@@ -1,11 +1,18 @@
 import React from "react";
 
 function Car(props) {
-  return (
-    <option id={props.id}>
-      {props.brand} ({props.category})
-    </option>
-  );
+  if(props.howManyCars>0) 
+    return (
+      <option id={props.id}>
+        {props.brand} ({props.category})
+      </option>
+    );
+  else
+    return (
+      <option id={props.id}>
+       
+      </option>
+    );
 }
 
 export default Car;

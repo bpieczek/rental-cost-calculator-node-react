@@ -1,32 +1,36 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axios";
-import Car from "../Car";
-import "./style.css";
-import onChangeHandler from "./handler";
+import React, { useEffect, useState } from 'react'
+import axios from "../../axios"
+import Car from "../Car"
+import "./style.css"
+import onChangeHandler from './handler'
 let Today = new Date().toISOString().split("T")[0];
 const thisYear = new Date().getFullYear();
 
 const Carrental = (props) => {
-  const [cars, setCars] = useState();
+  const [cars, setCars] = useState()
 
-  useEffect(() => {
-    const fetchCars = async () => {
+  useEffect(()=> {
+    const fetchCars = async () =>  {
       const res = await axios.get("/");
       setCars(res.data);
-    };
-    fetchCars();
-  }, []);
+    }
+    fetchCars()
+  }, [])
+
 
   return (
     <header className="hero">
       <div className="container">
         <h1>Rental car cost calculator!</h1>
-        <form
-          onSubmit={(event) => onChangeHandler(event, props.setValues, cars)}
-        >
+        <form onSubmit={(event) => onChangeHandler(event, props.setValues, cars)}>
           <label>
             How many kilometers:{" "}
-            <input name="kilometers" type="number" required min="0"></input>
+            <input
+              name='kilometers'
+              type="number"
+              required
+              min="0"
+            ></input>
           </label>
 
           <label
@@ -34,7 +38,7 @@ const Carrental = (props) => {
           >
             The year when you got your driving license:{" "}
             <input
-              name="whenGetDrivinglicence"
+              name='whenGetDrivinglicence'
               type="number"
               required
               min="1950"
@@ -44,7 +48,8 @@ const Carrental = (props) => {
 
           <div className="together">
             <label>
-              From: <input name="fromDate" type="date" min={Today} required />
+              From:{" "}
+              <input name="fromDate" type="date" min={Today} required />
             </label>
             <label>
               {" "}
@@ -54,23 +59,23 @@ const Carrental = (props) => {
           <label>
             Choose a car:
             <select name="carToRent" required>
-              {cars &&
-                cars.map((car) => (
-                  <Car
-                    key={car._id}
-                    id={car._id}
-                    brand={car.brand}
-                    category={car.category}
-                  />
-                ))}
-              ]
+            {cars && cars.map((car) => (
+                <Car
+                  key={car._id}
+                  id={car._id}
+                  brand={car.brand}
+                  category={car.category}
+                  howManyCars={car.howManyCars}
+                />
+              ))}
             </select>
           </label>
           <button type="submit">Calculate!</button>
         </form>
       </div>
-    </header>
-  );
-};
 
-export default Carrental;
+    </header>
+  )
+}
+
+export default Carrental

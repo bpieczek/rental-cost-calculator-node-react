@@ -1,10 +1,11 @@
 import React from "react";
-import Contact from "../components/Contact";
+import RentCarForm from "../components/RentCarForm";
 
 function Rentcar(props) {
   return (
     <section>
-      <Contact />
+      <h1>Rentcat page &#128008;</h1>
+      <RentCarForm />
     </section>
   );
 }
