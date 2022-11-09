@@ -1,5 +1,5 @@
-import React from 'react'
-import "./style.css"
+import React from "react";
+import "./style.css";
 const miliseconds = 86400000;
 const FuelCost = 8;
 const thisYear = new Date().getFullYear();
@@ -9,13 +9,13 @@ function roundToTwoDecimal(number) {
 }
 
 const Result = (props) => {
-  if (props.values.length === 0) return
-  console.log(props.values)
+  if (props.values.length === 0) return;
+  console.log(props.values);
   let CarRentalCost = 199.99;
 
   let fromDate = new Date(props.values[1]).getTime();
   let toDate = new Date(props.values[2]).getTime();
-  
+
   let rentalTimeInDays = (toDate - fromDate) / miliseconds;
   let timeCostMessage = `Cost of renting a car for one day: ${roundToTwoDecimal(
     CarRentalCost
@@ -34,21 +34,15 @@ const Result = (props) => {
         return alert("You can't rent premium car!");
 
       CarRentalCost *= 2;
-      carCategoryCostMessage += `100% = ${roundToTwoDecimal(
-        CarRentalCost
-      )} \n`;
+      carCategoryCostMessage += `100% = ${roundToTwoDecimal(CarRentalCost)} \n`;
       break;
     case "Medium":
       CarRentalCost *= 1.6;
-      carCategoryCostMessage += `60% = ${roundToTwoDecimal(
-        CarRentalCost
-      )} \n`;
+      carCategoryCostMessage += `60% = ${roundToTwoDecimal(CarRentalCost)} \n`;
       break;
     case "Standard":
       CarRentalCost *= 1.3;
-      carCategoryCostMessage += `30% = ${roundToTwoDecimal(
-        CarRentalCost
-      )} \n`;
+      carCategoryCostMessage += `30% = ${roundToTwoDecimal(CarRentalCost)} \n`;
       break;
     case "Basic":
     default:
@@ -99,8 +93,6 @@ const Result = (props) => {
       </div>
     </div>
   );
-  
-}
+};
 
-  
-export default Result
+export default Result;
