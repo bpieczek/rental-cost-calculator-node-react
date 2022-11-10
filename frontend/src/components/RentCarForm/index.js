@@ -1,39 +1,35 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axios";
+import React from "react";
 import "./style.css";
+import Car from "../Car";
+let Today = new Date().toISOString().split("T")[0];
+const thisYear = new Date().getFullYear();
 
-function onSubmitHandler(e) {}
 
-function RentCarForm() {
-  const [cars, setCars] = useState();
-
-  useEffect(() => {
-    const fetchCars = async () => {
-      const res = await axios.get("/");
-      setCars(res.data);
-    };
-    fetchCars();
-  }, []);
-
+function RentCarForm(props) {
   return (
-    <form onSubmit={(event) => onSubmitHandler(event)} className="RentCarForm">
-      <h2></h2>
-      <h2>Rent Car</h2>
-      <input type="text" name="firstName" placeholder="First Name" />
-      <input type="text" name="surname" placeholder="Surname" />
-      <input type="text" name="address" placeholder="Address" />
-      <input
-        type="text"
-        name="zipCode"
-        pattern="^\d{2}-\d{3}$"
-        placeholder="Zip Code"
-      />
-      <input type="number" name="yearOfBirth" placeholder="Year of birth" />
-
-      <input type="email" name="email" placeholder="Email" />
-      <input type="number" name="phoneNumber" placeholder="Phone number" />
-      <button type="submit">Rent cars!</button>
-    </form>
+    <div className="RentCarForm">
+      <h3></h3>
+      <select name="carToRent" required>
+        {props.cars &&
+          props.cars.map((car) => (
+            <Car
+              key={car._id}
+              id={car._id}
+              brand={car.brand}
+              category={car.category}
+              howManyCars={car.howManyCars}
+            />
+          ))}
+      </select>
+      <div className="together">
+        <label>
+          From: <input name="fromDate" type="date" min={Today} required />
+        </label>
+        <label>
+          To: <input name="toDate" type="date" min={Today} required />
+        </label>
+      </div>
+    </div>
   );
 }
 
