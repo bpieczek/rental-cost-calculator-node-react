@@ -4,7 +4,6 @@ import Car from "../Car";
 let Today = new Date().toISOString().split("T")[0];
 const thisYear = new Date().getFullYear();
 
-
 function RentCarForm(props) {
   return (
     <div className="RentCarForm">

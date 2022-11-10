@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 function RentCarForm(props) {
-
   return (
     <div className="RentCarForm">
       <h2></h2>

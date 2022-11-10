@@ -1,25 +1,25 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../axios";
 import RentCarForm from "../components/RentCarForm";
-import RentCarFormInfo from "../components/RentCarInfoForm"
+import RentCarFormInfo from "../components/RentCarInfoForm";
 
 function Rentcar(props) {
   const [cars, setCars] = useState();
-  const [resList, setResList] = useState([true, true])
+  const [resList, setResList] = useState([true, true]);
   function onSubmitHandler(e) {
     e.preventDefault();
-    let obj=e.target
+    let obj = e.target;
     for (let i = 0; i < resList.length; i++) {
       let data = {
         whichCar: obj.carToRent[i].value,
-        whosRenting: obj.firstName+obj.surname,
-        from:obj.fromDate[i].value,
-        to: obj.toDate[i].value
+        whosRenting: obj.firstName + obj.surname,
+        from: obj.fromDate[i].value,
+        to: obj.toDate[i].value,
       };
       rentCar(data);
     }
   }
-  
+
   async function rentCar(data) {
     await axios.post("/rentcar", data);
   }
@@ -33,22 +33,22 @@ function Rentcar(props) {
   }, []);
 
   const handleReservationAdd = () => {
-    setResList([...resList, true])
-  }
+    setResList([...resList, true]);
+  };
   const handleReservationRemove = (index) => {
-    const list = [...resList]
-    list.splice(index, 1)
-    setResList(list)
-  }
+    const list = [...resList];
+    list.splice(index, 1);
+    setResList(list);
+  };
 
   return (
-    <form onSubmit={(e) =>onSubmitHandler(e)}>
+    <form onSubmit={(e) => onSubmitHandler(e)}>
       <h1>Rentcat page &#128008;</h1>
       <button onClick={handleReservationAdd}>Add Reservation</button>
 
-      {resList.map((reservation, index)=>(
+      {resList.map((reservation, index) => (
         <div className="reservationContainer">
-          <RentCarForm cars={cars} />    
+          <RentCarForm cars={cars} />
           <button onClick={handleReservationRemove}> Remove</button>
         </div>
       ))}
