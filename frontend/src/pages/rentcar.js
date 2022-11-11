@@ -12,7 +12,7 @@ function Rentcar(props) {
     for (let i = 0; i < resList.length; i++) {
       let data = {
         whichCar: obj.carToRent[i].value,
-        whosRenting: obj.firstName + obj.surname,
+        whosRenting: obj.firstName.value + " " + obj.surname.value,
         from: obj.fromDate[i].value,
         to: obj.toDate[i].value,
       };
@@ -35,6 +35,7 @@ function Rentcar(props) {
   const handleReservationAdd = () => {
     setResList([...resList, true]);
   };
+
   const handleReservationRemove = (index) => {
     const list = [...resList];
     list.splice(index, 1);

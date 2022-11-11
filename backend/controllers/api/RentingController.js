@@ -10,7 +10,7 @@ class RentingController {
     let renting;
     let doc;
     try {
-      doc = await Renting.find({});
+      /*doc = await Renting.find({});
       doc.forEach((renting) => {
         if (
           renting.whichCar === whichCar &&
@@ -19,16 +19,16 @@ class RentingController {
             (renting.from.getTime() <= to.getTime() &&
               renting.to.getTime() >= to.getTime()))
         ) {
-          return res.status(422).json({ message: "" });
+          return res.status(422).json({ message: "Car is not available in this period!" });
         }
-      });
+      });*/
       renting = new Renting({ whichCar, from, to, whosRenting });
       await renting.save();
     } catch (err) {
       return res.status(422).json({ message: err.message });
     }
 
-    res.status(201).json(renting);
+    return res.status(201).json(renting);
   }
 }
 
