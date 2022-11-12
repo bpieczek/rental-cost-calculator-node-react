@@ -12,7 +12,6 @@ class RentingController {
     let renting;
     let doc;
     let cars;
-    let isAvaliable = true;
 
     try {
       doc = await Renting.find({});
@@ -31,20 +30,15 @@ class RentingController {
                 (renting.from.getTime() <= to.getTime() &&
                   renting.to.getTime() >= to.getTime()))
             ) {
-              isAvaliable = false;
-              return res.status(422).json({
+              throw res.status(422).json({
                 message: `Car ${whichCar} is not available in this period!`,
               });
             }
           });
         }
       });
-      if (isAvaliable) {
-        renting = new Renting({ whichCar, from, to, whosRenting });
-        await renting.save();
-      } else {
-        return;
-      }
+      renting = new Renting({ whichCar, from, to, whosRenting });
+      await renting.save();
     } catch (err) {
       return res.status(422).json({ message: err.message });
     }
