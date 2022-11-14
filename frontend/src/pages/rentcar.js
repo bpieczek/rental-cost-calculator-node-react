@@ -18,7 +18,7 @@ function Rentcar(props) {
     resList.forEach((element) => {
       const data = {
         whichCar: element.whichCar,
-        whosRenting: obj.firstName + obj.surname,
+        whosRenting: obj.firstName.value +" "+ obj.surname.value,
         from: element.fromDate,
         to: element.toDate,
       };
@@ -27,6 +27,7 @@ function Rentcar(props) {
   }
 
   async function rentCar(data) {
+    console.log(data)
     await axios.post("/rentcar", data);
   }
 
