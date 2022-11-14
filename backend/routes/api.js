@@ -8,6 +8,7 @@ const sendEmailController = require("../controllers/sendEmailController");
 router.get("/", CarsController.getAllCars);
 
 router.post("/rentcar", RentingController.rentCar);
+router.delete("/rentcar", RentingController.databaseClearing);
 
 router.post("/sendemail", sendEmailController.emailSending);
 

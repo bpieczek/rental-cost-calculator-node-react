@@ -37,12 +37,53 @@ class RentingController {
           });
         }
       });
+
       renting = new Renting({ whichCar, from, to, whosRenting });
       await renting.save();
+      schedule.scheduleJob(
+        new Date(
+          from.getTime() +
+            (new Date(Date.now()).getTime() - from.getTime()) +
+            5000
+        ),
+
+        function () {
+          cars.forEach((car) => {
+            if (whichCar === `${car.brand} (${car.category})`) {
+              car.howManyCars = car.howManyCars - 1;
+              car.save();
+            }
+          });
+        }
+      );
+
+      schedule.scheduleJob(
+        new Date(
+          to.getTime() +
+            (new Date(Date.now()).getTime() - from.getTime()) +
+            5000
+        ),
+        function () {
+          cars.forEach((car) => {
+            if (whichCar === `${car.brand} (${car.category})`) {
+              car.howManyCars = car.howManyCars + 1;
+              car.save();
+            }
+          });
+        }
+      );
     } catch (err) {
       return res.status(422).json({ message: err.message });
     }
     return res.status(201).json(renting);
+  }
+
+  async databaseClearing(req, res) {
+    let doc = await Renting.find({});
+    doc.forEach((renting) => {
+      renting.deleteOne();
+    });
+    res.sendStatus(204);
   }
 }
 
