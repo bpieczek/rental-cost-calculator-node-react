@@ -46,6 +46,7 @@ function Rentcar(props) {
     };
     setResList([...resList, reservation]);
   };
+
   const handleReservationRemove = (index) => {
     console.log(index);
     const list = [...resList];

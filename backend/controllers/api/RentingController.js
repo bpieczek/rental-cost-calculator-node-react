@@ -1,4 +1,6 @@
+const schedule = require("node-schedule");
 const Renting = require("../../database/models/renting");
+const Cars = require("../../database/models/car");
 
 class RentingController {
   async rentCar(req, res) {
@@ -9,17 +11,30 @@ class RentingController {
 
     let renting;
     let doc;
+    let cars;
+
     try {
       doc = await Renting.find({});
-      doc.forEach((renting) => {
+      cars = await Cars.find({});
+
+      cars.forEach((car) => {
         if (
-          renting.whichCar === whichCar &&
-          ((renting.from.getTime() <= from.getTime() &&
-            renting.to.getTime() >= from.getTime()) ||
-            (renting.from.getTime() <= to.getTime() &&
-              renting.to.getTime() >= to.getTime()))
+          car.howManyCars === 1 &&
+          whichCar === `${car.brand} (${car.category})`
         ) {
-          return res.status(422).json({ message: "" });
+          doc.forEach((renting) => {
+            if (
+              renting.whichCar === whichCar &&
+              ((renting.from.getTime() <= from.getTime() &&
+                renting.to.getTime() >= from.getTime()) ||
+                (renting.from.getTime() <= to.getTime() &&
+                  renting.to.getTime() >= to.getTime()))
+            ) {
+              throw res.status(422).json({
+                message: `Car ${whichCar} is not available in this period!`,
+              });
+            }
+          });
         }
       });
       renting = new Renting({ whichCar, from, to, whosRenting });
@@ -27,8 +42,7 @@ class RentingController {
     } catch (err) {
       return res.status(422).json({ message: err.message });
     }
-
-    res.status(201).json(renting);
+    return res.status(201).json(renting);
   }
 }
 
