@@ -6,9 +6,8 @@ const thisYear = new Date().getFullYear();
 
 function RentCarForm(props) {
   return (
-    <div className="RentCarForm">
-      <h3></h3>
-      <select name="carToRent" required>
+    <div className="RentCarForm" onChange={props.onChange}>
+      <select name="whichCar" value={props.value.whichCar} required>
         {props.cars &&
           props.cars.map((car) => (
             <Car
@@ -22,10 +21,19 @@ function RentCarForm(props) {
       </select>
       <div className="together">
         <label>
-          From: <input name="fromDate" type="date" min={Today} required />
+          From: <input 
+          name="fromDate" 
+          type="date" 
+          min={Today} 
+          value={props.value.fromDate}
+          required />
         </label>
         <label>
-          To: <input name="toDate" type="date" min={Today} required />
+          To: <input name="toDate"
+          type="date"
+          min={Today} 
+          value={props.value.toDate}
+          required />
         </label>
       </div>
     </div>
