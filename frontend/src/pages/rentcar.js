@@ -5,15 +5,17 @@ import RentCarFormInfo from "../components/RentCarInfoForm";
 
 function Rentcar(props) {
   const [cars, setCars] = useState();
-  const [resList, setResList] = useState([{
-    whichCar: "",
-    fromDate: "",
-    toDate: "",
-  }]);
+  const [resList, setResList] = useState([
+    {
+      whichCar: "",
+      fromDate: "",
+      toDate: "",
+    },
+  ]);
   function onSubmitHandler(e) {
     e.preventDefault();
     let obj = e.target;
-    resList.forEach(element => {
+    resList.forEach((element) => {
       const data = {
         whichCar: element.whichCar,
         whosRenting: obj.firstName + obj.surname,
@@ -41,20 +43,20 @@ function Rentcar(props) {
       whichCar: "",
       fromDate: "",
       toDate: "",
-    }
+    };
     setResList([...resList, reservation]);
   };
   const handleReservationRemove = (index) => {
-    console.log(index)
+    console.log(index);
     const list = [...resList];
     list.splice(index, 1);
     setResList(list);
   };
   const handleReservationChange = (e, index) => {
-    const {name, value} = e.target
-    const list = [...resList]
-    list[index][name] = value
-    setResList(list)
+    const { name, value } = e.target;
+    const list = [...resList];
+    list[index][name] = value;
+    setResList(list);
   };
 
   return (
@@ -62,10 +64,20 @@ function Rentcar(props) {
       <h1>Rentcat page &#128008;</h1>
       {resList.map((reservation, index) => (
         <div key={index} className="reservationContainer">
-          <RentCarForm cars={cars} value={reservation} onChange={(e)=>handleReservationChange(e, index)}/>
-          {resList.length>1 && <button onClick={() => handleReservationRemove(index)} > Remove</button>
-          }{resList.length-1===index && 
-          <button onClick={handleReservationAdd}>Add Reservation</button>}
+          <RentCarForm
+            cars={cars}
+            value={reservation}
+            onChange={(e) => handleReservationChange(e, index)}
+          />
+          {resList.length > 1 && (
+            <button onClick={() => handleReservationRemove(index)}>
+              {" "}
+              Remove
+            </button>
+          )}
+          {resList.length - 1 === index && (
+            <button onClick={handleReservationAdd}>Add Reservation</button>
+          )}
         </div>
       ))}
       <RentCarFormInfo />

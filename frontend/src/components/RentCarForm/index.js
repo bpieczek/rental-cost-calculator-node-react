@@ -21,19 +21,24 @@ function RentCarForm(props) {
       </select>
       <div className="together">
         <label>
-          From: <input 
-          name="fromDate" 
-          type="date" 
-          min={Today} 
-          value={props.value.fromDate}
-          required />
+          From:{" "}
+          <input
+            name="fromDate"
+            type="date"
+            min={Today}
+            value={props.value.fromDate}
+            required
+          />
         </label>
         <label>
-          To: <input name="toDate"
-          type="date"
-          min={Today} 
-          value={props.value.toDate}
-          required />
+          To:{" "}
+          <input
+            name="toDate"
+            type="date"
+            min={Today}
+            value={props.value.toDate}
+            required
+          />
         </label>
       </div>
     </div>
