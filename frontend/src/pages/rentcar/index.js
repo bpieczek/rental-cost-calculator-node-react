@@ -19,6 +19,11 @@ function Rentcar(props) {
       const data = {
         whichCar: element.whichCar,
         whosRenting: obj.firstName.value + " " + obj.surname.value,
+        email: obj.email,
+        phone: obj.phoneNumber,
+        adress: obj.address,
+        zipCode: obj.zipCode,
+        birthYear: obj.birthYear,
         from: element.fromDate,
         to: element.toDate,
       };
@@ -86,7 +91,7 @@ function Rentcar(props) {
                 onClick={() => handleReservationRemove(index)}
                 className="delRes"
               >
-                -
+                &times;
               </button>
             )}
           </div>
@@ -99,7 +104,12 @@ function Rentcar(props) {
         </div>
       ))}
       <RentCarFormInfo />
-      <button type="submit">Next</button>
+          <button type="submit">Next</button>
+    <div class="alert">
+      <span class="closebtn">&times;</span>  
+      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    </div>
+
     </form>
   );
 }

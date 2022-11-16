@@ -18,25 +18,25 @@ body {
 }
 .delRes {
   height: 160px;
-  background-color: #df3e23;
+  background-color: #f66359;
   border: 0;
   border-top-right-radius: 32px;
   border-bottom-right-radius: 32px;
   width: 80px;
-  font-size: 60px;
+  font-size: 72px;
 }
 .delRes:hover {
-  background-color: #b4202a;
+  background-color: #df3e23;
 }
 .addRes {
-  background-color: #59c135;
+  background-color: #2fb986;
   border: 0;
-  font-size: 60px;
+  font-size: 72px;
   width: 210px;
-  height: 70px;
+  height: 80px;
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
 }
 .addRes:hover {
-  background-color: #14a02e;
+  background-color: #59c135;
 }
