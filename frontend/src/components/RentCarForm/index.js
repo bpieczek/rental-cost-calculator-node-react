@@ -2,12 +2,17 @@ import React from "react";
 import "./style.css";
 import Car from "../Car";
 let Today = new Date().toISOString().split("T")[0];
-const thisYear = new Date().getFullYear();
 
 function RentCarForm(props) {
   return (
-    <div className="RentCarForm" onChange={props.onChange}>
-      <select name="whichCar" value={props.value.whichCar} required>
+    <div className="RentCarForm">
+      <label>Car: </label>
+      <select
+        name="whichCar"
+        value={props.value.whichCar}
+        required
+        onChange={props.onChange}
+      >
         {props.cars &&
           props.cars.map((car) => (
             <Car
@@ -27,6 +32,7 @@ function RentCarForm(props) {
             type="date"
             min={Today}
             value={props.value.fromDate}
+            onChange={props.onChange}
             required
           />
         </label>
@@ -37,6 +43,7 @@ function RentCarForm(props) {
             type="date"
             min={Today}
             value={props.value.toDate}
+            onChange={props.onChange}
             required
           />
         </label>

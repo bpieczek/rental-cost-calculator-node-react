@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
-
+const thisYear = new Date().getFullYear();
 function RentCarForm(props) {
   return (
-    <div className="RentCarForm">
+    <div className="RentCarFormInfo">
       <h2></h2>
       <h2>Personal information</h2>
       <input type="text" name="firstName" placeholder="First Name" />
@@ -15,8 +15,14 @@ function RentCarForm(props) {
         pattern="^\d{2}-\d{3}$"
         placeholder="Zip Code"
       />
-      <input type="number" name="yearOfBirth" placeholder="Year of birth" />
-
+      <input
+        type="number"
+        name="yearOfBirth"
+        placeholder="Birth year"
+        required
+        min="1900"
+        max={thisYear - 18}
+      />
       <input type="email" name="email" placeholder="Email" />
       <input type="number" name="phoneNumber" placeholder="Phone number" />
     </div>

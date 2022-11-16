@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "../axios";
-import RentCarForm from "../components/RentCarForm";
-import RentCarFormInfo from "../components/RentCarInfoForm";
-
+import axios from "../../axios";
+import RentCarForm from "../../components/RentCarForm";
+import RentCarFormInfo from "../../components/RentCarInfoForm";
+import "./style.css";
 function Rentcar(props) {
   const [cars, setCars] = useState();
   const [resList, setResList] = useState([
@@ -18,7 +18,7 @@ function Rentcar(props) {
     resList.forEach((element) => {
       const data = {
         whichCar: element.whichCar,
-        whosRenting: obj.firstName.value +" "+ obj.surname.value,
+        whosRenting: obj.firstName.value + " " + obj.surname.value,
         from: element.fromDate,
         to: element.toDate,
       };
@@ -27,13 +27,22 @@ function Rentcar(props) {
   }
 
   async function rentCar(data) {
-    console.log(data)
+    console.log(data);
     await axios.post("/rentcar", data);
   }
 
   useEffect(() => {
     const fetchCars = async () => {
       const res = await axios.get("/");
+
+      let i = 0;
+      while (i < res.data.length) {
+        if (res.data[i].howManyCars < 1) {
+          res.data.splice(i, 1);
+        } else {
+          ++i;
+        }
+      }
       setCars(res.data);
     };
     fetchCars();
@@ -66,19 +75,26 @@ function Rentcar(props) {
       <h1>Rentcat page &#128008;</h1>
       {resList.map((reservation, index) => (
         <div key={index} className="reservationContainer">
-          <RentCarForm
-            cars={cars}
-            value={reservation}
-            onChange={(e) => handleReservationChange(e, index)}
-          />
-          {resList.length > 1 && (
-            <button onClick={() => handleReservationRemove(index)}>
-              {" "}
-              Remove
-            </button>
-          )}
+          <div className="togetherContainer">
+            <RentCarForm
+              cars={cars}
+              value={reservation}
+              onChange={(e) => handleReservationChange(e, index)}
+            />
+            {resList.length > 1 && (
+              <button
+                onClick={() => handleReservationRemove(index)}
+                className="delRes"
+              >
+                -
+              </button>
+            )}
+          </div>
+
           {resList.length - 1 === index && (
-            <button onClick={handleReservationAdd}>Add Reservation</button>
+            <button onClick={handleReservationAdd} className="addRes">
+              +
+            </button>
           )}
         </div>
       ))}

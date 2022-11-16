@@ -1,23 +1,23 @@
-.RentCarForm {
+.RentCarFormInfo {
   width: 50%;
   background-color: white;
   margin: auto auto;
   text-align: center;
 }
-.RentCarForm h2 {
+.RentCarFormInfo h2 {
 }
-.RentCarForm label,
-.RentCarForm input,
-.RentCarForm textarea {
+.RentCarFormInfo label,
+.RentCarFormInfo input,
+.RentCarFormInfo textarea {
   max-height: 50px;
   margin: 10px 20px 50px;
 }
 
-.RentCarForm :where(input, select, textarea, button):focus-within {
+.RentCarFormInfo :where(input, select, textarea, button):focus-within {
   outline: 0;
   background-color: #eee;
 }
-.RentCarForm button {
+.RentCarFormInfo button {
   width: 50%;
   margin: 1em;
 }

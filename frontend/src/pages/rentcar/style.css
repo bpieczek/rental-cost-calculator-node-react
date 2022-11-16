@@ -1,0 +1,42 @@
+body {
+  text-align: center;
+}
+.reservationContainer {
+  margin: 40px;
+}
+.togetherContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+.RentCarForm {
+  float: right;
+  margin: 0;
+}
+.delRes {
+  height: 160px;
+  background-color: #df3e23;
+  border: 0;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  width: 80px;
+  font-size: 60px;
+}
+.delRes:hover {
+  background-color: #b4202a;
+}
+.addRes {
+  background-color: #59c135;
+  border: 0;
+  font-size: 60px;
+  width: 210px;
+  height: 70px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+.addRes:hover {
+  background-color: #14a02e;
+}
