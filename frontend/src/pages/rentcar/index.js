@@ -7,7 +7,7 @@ function Rentcar(props) {
   const [cars, setCars] = useState();
   const [resList, setResList] = useState([
     {
-      whichCar: "",
+      whichCar: "Audi (Premium)",
       fromDate: "",
       toDate: "",
     },
@@ -15,24 +15,20 @@ function Rentcar(props) {
   function onSubmitHandler(e) {
     e.preventDefault();
     let obj = e.target;
-    resList.forEach((element) => {
-      const data = {
-        whichCar: element.whichCar,
-        whosRenting: obj.firstName.value + " " + obj.surname.value,
-        email: obj.email,
-        phone: obj.phoneNumber,
-        adress: obj.address,
-        zipCode: obj.zipCode,
-        birthYear: obj.birthYear,
-        from: element.fromDate,
-        to: element.toDate,
-      };
-      rentCar(data);
-    });
+    const data = {
+      whosRenting: obj.firstName.value + " " + obj.surname.value,
+      email: obj.email.value,
+      phone: obj.phoneNumber.value,
+      adress: obj.address.value,
+      zipCode: obj.zipCode.value,
+      birthYear: obj.birthYear.value,
+      rents: resList,
+    };
+    rentCar(data)
   }
 
   async function rentCar(data) {
-    console.log(data);
+
     await axios.post("/rentcar", data);
   }
 
