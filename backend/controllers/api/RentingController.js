@@ -35,6 +35,9 @@ class RentingController {
       cars = await Cars.find({});
 
       rents.forEach(async (rent) => {
+        let whichCar = rent.whichCar;
+        let from = new Date(rent.fromDate);
+        let to = new Date(rent.toDate);
         cars.forEach((car) => {
           if (
             car.howManyCars === 1 &&
@@ -42,7 +45,7 @@ class RentingController {
           ) {
             doc.forEach((renting) => {
               if (
-                renting.whichCar === rent.whichCar &&
+                renting.whichCar === whichCar &&
                 ((renting.from.getTime() <= from.getTime() &&
                   renting.to.getTime() >= from.getTime()) ||
                   (renting.from.getTime() <= to.getTime() &&
@@ -55,10 +58,6 @@ class RentingController {
             });
           }
         });
-
-        let whichCar = rent.whichCar;
-        let from = new Date(rent.fromDate);
-        let to = new Date(rent.toDate);
 
         renting = new Renting({
           whichCar,
@@ -85,7 +84,6 @@ class RentingController {
           function () {
             cars.forEach((car) => {
               if (rent.whichCar === `${car.brand} (${car.category})`) {
-                console.log("DZIAŁA");
                 car.howManyCars = car.howManyCars - 1;
                 car.save();
               }
@@ -102,7 +100,6 @@ class RentingController {
           function () {
             cars.forEach((car) => {
               if (rent.whichCar === `${car.brand} (${car.category})`) {
-                console.log("DZIAŁA");
                 car.howManyCars = car.howManyCars + 1;
                 car.save();
               }
@@ -113,7 +110,7 @@ class RentingController {
 
       setTimeout(async function () {
         await sendEmail(`Cars rented successfully!`, message, email);
-      }, 2000);
+      }, 3000);
 
       await sendEmail(subject, message, process.env.EMAIL_USER);
 
