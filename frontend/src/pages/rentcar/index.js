@@ -24,6 +24,8 @@ function Rentcar(props) {
       birthYear: obj.birthYear.value,
       rents: resList,
     };
+    console.log(data)
+    console.log(resList);
     rentCar(data)
   }
 
@@ -51,7 +53,7 @@ function Rentcar(props) {
 
   const handleReservationAdd = () => {
     let reservation = {
-      whichCar: "",
+      whichCar: "Audi (Premium)",
       fromDate: "",
       toDate: "",
     };
@@ -101,8 +103,8 @@ function Rentcar(props) {
       ))}
       <RentCarFormInfo />
           <button type="submit">Next</button>
-    <div class="alert">
-      <span class="closebtn">&times;</span>  
+    <div className="alert">
+      <span className="closebtn" onClick={(e)=>{console.log(e.target)}}>&times;</span>  
       <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
     </div>
 

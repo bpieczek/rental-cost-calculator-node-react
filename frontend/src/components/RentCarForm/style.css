@@ -3,16 +3,28 @@
   background-color: white;
   margin: auto auto;
   text-align: center;
+
 }
-.RentCarForm h2 {
+.together {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: flex-end;
 }
 .RentCarForm label,
 .RentCarForm input,
 .RentCarForm textarea {
   max-height: 50px;
   margin: 10px 20px 50px;
+  width: 8em;
+  flex: 1;
 }
-
+@media (max-width: 1200px) {
+  .together {
+    flex-direction: column;
+  }
+}
 .RentCarForm :where(input, select, textarea, button):focus-within {
   outline: 0;
   background-color: #eee;
