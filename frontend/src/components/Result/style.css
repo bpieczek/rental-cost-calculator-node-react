@@ -2,13 +2,34 @@
   margin: 4em 2em;
   background: white;
 
-  min-height: 50vh;
+  min-height: 10vh;
   font-weight: 500;
   line-height: 1.5;
   font-size: 1.2em;
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  
 }
-
+.containerSteps p {
+  color: #04AA6D;
+}
+.containerSteps {
+  line-height: 0;
+}
+.containerSteps label {
+  font-weight: 100;
+  opacity: 50%;
+}
+.containerSteps div {
+  line-height: 0.2em;
+  margin-top: 2em;
+}
+.containerCost p {
+  font-size: 175%;
+}
+.containerCost {
+  line-height: 0.6em;
+}
 .final {
   font-size: 1.3em;
 }

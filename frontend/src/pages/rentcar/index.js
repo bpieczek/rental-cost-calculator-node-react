@@ -3,6 +3,7 @@ import axios from "../../axios";
 import RentCarForm from "../../components/RentCarForm";
 import RentCarFormInfo from "../../components/RentCarInfoForm";
 import "./style.css";
+
 function Rentcar(props) {
   const [cars, setCars] = useState();
   const [resList, setResList] = useState([

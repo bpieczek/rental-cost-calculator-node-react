@@ -22,11 +22,13 @@ const Carrental = (props) => {
       <div className="container">
         <h1>Rental car cost calculator!</h1>
         <form
-          onSubmit={(event) => onChangeHandler(event, props.setValues, cars)}
+          id="calculatorData"
+          onChange={(event) => onChangeHandler(event, props.setValues, cars)}
         >
           <label>
             How many kilometers:{" "}
-            <input name="kilometers" type="number" required min="0"></input>
+            <input name="kilometers" type="number" required min="0"
+            defaultValue="100"></input>
           </label>
 
           <label
@@ -39,16 +41,17 @@ const Carrental = (props) => {
               required
               min="1950"
               max={thisYear}
+              defaultValue="2000"
             ></input>
           </label>
 
           <div className="together">
             <label>
-              From: <input name="fromDate" type="date" min={Today} required />
+              From: <input name="fromDate" type="date" min={Today} required defaultValue={Today}/>
             </label>
             <label>
               {" "}
-              To: <input name="toDate" type="date" min={Today} required />
+              To: <input name="toDate" type="date" min={Today} required defaultValue="2022-12-12"/>
             </label>
           </div>
           <label>
@@ -65,8 +68,8 @@ const Carrental = (props) => {
                   />
                 ))}
             </select>
+
           </label>
-          <button type="submit">Calculate!</button>
         </form>
       </div>
     </header>
