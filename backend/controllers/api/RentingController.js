@@ -109,10 +109,11 @@ class RentingController {
       });
 
       setTimeout(async function () {
-        await sendEmail(`Cars rented successfully!`, message, email);
-      }, 2000);
-
-      await sendEmail(subject, message, process.env.EMAIL_USER);
+        await sendEmail(subject, message, process.env.EMAIL_USER);
+        setTimeout(async function () {
+          await sendEmail(`Cars rented successfully!`, message, email);
+        }, 1000);
+      }, 1000);
 
       return res.status(201).json(renting);
     } catch (err) {
