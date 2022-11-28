@@ -110,11 +110,9 @@ class RentingController {
 
       setTimeout(async function () {
         await sendEmail(`Cars rented successfully!`, message, email);
-      }, 3000);
+      }, 2000);
 
-      setTimeout(async function () {
-        await sendEmail(subject, message, process.env.EMAIL_USER);
-      }, 3000);
+      await sendEmail(subject, message, process.env.EMAIL_USER);
 
       return res.status(201).json(renting);
     } catch (err) {
