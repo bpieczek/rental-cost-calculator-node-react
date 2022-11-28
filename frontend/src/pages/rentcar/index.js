@@ -25,13 +25,12 @@ function Rentcar(props) {
       birthYear: obj.birthYear.value,
       rents: resList,
     };
-    console.log(data)
+    console.log(data);
     console.log(resList);
-    rentCar(data)
+    rentCar(data);
   }
 
   async function rentCar(data) {
-
     await axios.post("/rentcar", data);
   }
 

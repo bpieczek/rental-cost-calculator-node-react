@@ -35,8 +35,13 @@ const Carrental = (props) => {
         >
           <label>
             How many kilometers:{" "}
-            <input name="kilometers" type="number" required min="0"
-            defaultValue="100"></input>
+            <input
+              name="kilometers"
+              type="number"
+              required
+              min="0"
+              defaultValue="100"
+            ></input>
           </label>
 
           <label
@@ -55,11 +60,25 @@ const Carrental = (props) => {
 
           <div className="together">
             <label>
-              From: <input name="fromDate" type="date" min={Today} required defaultValue={Today}/>
+              From:{" "}
+              <input
+                name="fromDate"
+                type="date"
+                min={Today}
+                required
+                defaultValue={Today}
+              />
             </label>
             <label>
               {" "}
-              To: <input name="toDate" type="date" min={Today} required defaultValue="2022-12-12"/>
+              To:{" "}
+              <input
+                name="toDate"
+                type="date"
+                min={Today}
+                required
+                defaultValue="2022-12-12"
+              />
             </label>
           </div>
           <label>
@@ -76,7 +95,6 @@ const Carrental = (props) => {
                   />
                 ))}
             </select>
-
           </label>
         </form>
       </div>

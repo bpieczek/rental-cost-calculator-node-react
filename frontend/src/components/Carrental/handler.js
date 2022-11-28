@@ -1,9 +1,9 @@
 const thisYear = new Date().getFullYear();
 export default function onChangeHandler(e, setValues, cars) {
-  console.log("ZMIANA")
+  console.log("ZMIANA");
 
-  let form = document.getElementById("calculatorData")
-  console.log(form.kilometers)
+  let form = document.getElementById("calculatorData");
+  console.log(form.kilometers);
   let kilometers = form.kilometers.value;
 
   let fromDate = form.fromDate.value;
@@ -12,19 +12,23 @@ export default function onChangeHandler(e, setValues, cars) {
   let carToRent = cars.filter(
     (car) => car.brand + " (" + car.category + ")" === form.carToRent.value
   );
-  alert = document.getElementById("alert")
+  alert = document.getElementById("alert");
   if (!(kilometers && fromDate && toDate && whenGetDrivinglicence))
-    return alert.innerHTML = "Enter all values!";
+    return (alert.innerHTML = "Enter all values!");
 
   if (!(whenGetDrivinglicence <= thisYear && whenGetDrivinglicence >= 1950))
-    return alert.innerHTML = "Enter the correct year of getting the driving license!" ;
+    return (alert.innerHTML =
+      "Enter the correct year of getting the driving license!");
 
   if (new Date(fromDate).getTime() >= new Date(toDate).getTime())
-    return alert.innerHTML = "Enter the correct date!" ;
+    return (alert.innerHTML = "Enter the correct date!");
 
-  if (thisYear - whenGetDrivinglicence < 3 && carToRent[0].category =="Premium")
-    return alert.innerHTML = "You can't rent Premium Cars"
-  
+  if (
+    thisYear - whenGetDrivinglicence < 3 &&
+    carToRent[0].category == "Premium"
+  )
+    return (alert.innerHTML = "You can't rent Premium Cars");
+
   alert.innerHTML = "";
   setValues([
     parseInt(kilometers),

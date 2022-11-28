@@ -18,7 +18,7 @@ body {
 }
 .alert {
   padding: 20px;
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   margin: 0 auto;
   width: 60%;
@@ -34,7 +34,6 @@ body {
   line-height: 20px;
   cursor: pointer;
   transition: 0.3s;
-
 }
 
 .closebtn:hover {

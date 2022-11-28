@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Carrental from "../components/Carrental";
-import Result from "../components/Result";
-
+import Carrental from "../../components/Carrental";
+import Result from "../../components/Result";
+import "./style.css";
 const Calculator = () => {
   const [values, setValues] = useState([]);
   return (

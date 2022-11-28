@@ -8,10 +8,9 @@
   font-size: 1.2em;
   display: flex;
   justify-content: space-evenly;
-  
 }
 .containerSteps p {
-  color: #04AA6D;
+  color: #04aa6d;
 }
 .containerSteps {
   line-height: 0;

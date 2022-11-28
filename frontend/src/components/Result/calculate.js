@@ -3,52 +3,60 @@ const FuelCost = 8;
 const thisYear = new Date().getFullYear();
 
 function round(number) {
-    return Math.round(number * 100) / 100;
+  return Math.round(number * 100) / 100;
 }
 
 function Calculate(values) {
-    let CarRentalCost = 199.99;
-    let Steps = []
-    let fromDate = new Date(values[1]).getTime();
-    let toDate = new Date(values[2]).getTime();
+  let CarRentalCost = 199.99;
+  let Steps = [];
+  let fromDate = new Date(values[1]).getTime();
+  let toDate = new Date(values[2]).getTime();
 
-    CarRentalCost *= (toDate - fromDate) / miliseconds; //rentalTimeInDays
-    Steps = [...Steps, {name:`Rent Time`, value: round(CarRentalCost)}]
-    let tmp = CarRentalCost
-    
-    switch (values[4][0].category) {
-        case "Premium":
-            CarRentalCost *= 2;
-            break;
-        case "Medium":
-            CarRentalCost *= 1.6;
-            break;
-        case "Standard":
-            CarRentalCost *= 1.3;
-            break;
-        case "Basic":
-        default:
-            break;
-    }
+  CarRentalCost *= (toDate - fromDate) / miliseconds; //rentalTimeInDays
+  Steps = [...Steps, { name: `Rent Time`, value: round(CarRentalCost) }];
+  let tmp = CarRentalCost;
 
-    Steps = [...Steps, {name:"Car Category", value:round(CarRentalCost-tmp)}]
+  switch (values[4][0].category) {
+    case "Premium":
+      CarRentalCost *= 2;
+      break;
+    case "Medium":
+      CarRentalCost *= 1.6;
+      break;
+    case "Standard":
+      CarRentalCost *= 1.3;
+      break;
+    case "Basic":
+    default:
+      break;
+  }
 
-    if (thisYear - values[3] < 5) {
-        Steps = [...Steps, {name:"New Driver Fee", value:round(CarRentalCost*0.2)}]
-        CarRentalCost *= 1.2;
-    }
-    
-    if (values[4][0].howManyCars < 3) {
-        Steps = [...Steps, {name:"Low Availability Fee", value:round(CarRentalCost*0.15)}]
-        CarRentalCost *= 1.15;
-    }
+  Steps = [
+    ...Steps,
+    { name: "Car Category", value: round(CarRentalCost - tmp) },
+  ];
 
-    let combustionCost =
-        (values[0] / 100) * values[4][0].combustion * FuelCost;
+  if (thisYear - values[3] < 5) {
+    Steps = [
+      ...Steps,
+      { name: "New Driver Fee", value: round(CarRentalCost * 0.2) },
+    ];
+    CarRentalCost *= 1.2;
+  }
 
-    CarRentalCost += combustionCost;
-    Steps = [...Steps, {name:"Combustion Cost", value:round(combustionCost)}]
-    
-    return [round(CarRentalCost), Steps]
+  if (values[4][0].howManyCars < 3) {
+    Steps = [
+      ...Steps,
+      { name: "Low Availability Fee", value: round(CarRentalCost * 0.15) },
+    ];
+    CarRentalCost *= 1.15;
+  }
+
+  let combustionCost = (values[0] / 100) * values[4][0].combustion * FuelCost;
+
+  CarRentalCost += combustionCost;
+  Steps = [...Steps, { name: "Combustion Cost", value: round(combustionCost) }];
+
+  return [round(CarRentalCost), Steps];
 }
-export default Calculate
+export default Calculate;
