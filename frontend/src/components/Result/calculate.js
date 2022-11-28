@@ -18,8 +18,6 @@ function Calculate(values) {
     
     switch (values[4][0].category) {
         case "Premium":
-            if (thisYear - values[3] < 3)
-                return alert("You can't rent premium car!");
             CarRentalCost *= 2;
             break;
         case "Medium":
@@ -39,8 +37,7 @@ function Calculate(values) {
         Steps = [...Steps, {name:"New Driver Fee", value:round(CarRentalCost*0.2)}]
         CarRentalCost *= 1.2;
     }
-
-    let lowAvailabilityFee;
+    
     if (values[4][0].howManyCars < 3) {
         Steps = [...Steps, {name:"Low Availability Fee", value:round(CarRentalCost*0.15)}]
         CarRentalCost *= 1.15;
@@ -51,8 +48,7 @@ function Calculate(values) {
 
     CarRentalCost += combustionCost;
     Steps = [...Steps, {name:"Combustion Cost", value:round(combustionCost)}]
-
-    console.log(CarRentalCost)
+    
     return [round(CarRentalCost), Steps]
 }
 export default Calculate

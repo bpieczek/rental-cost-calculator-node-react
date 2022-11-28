@@ -1,9 +1,8 @@
 const thisYear = new Date().getFullYear();
 export default function onChangeHandler(e, setValues, cars) {
   console.log("ZMIANA")
-  e.preventDefault();
+
   let form = document.getElementById("calculatorData")
-  //XD
   console.log(form.kilometers)
   let kilometers = form.kilometers.value;
 
@@ -13,16 +12,20 @@ export default function onChangeHandler(e, setValues, cars) {
   let carToRent = cars.filter(
     (car) => car.brand + " (" + car.category + ")" === form.carToRent.value
   );
-
+  alert = document.getElementById("alert")
   if (!(kilometers && fromDate && toDate && whenGetDrivinglicence))
-    return //alert("Enter all values!");
+    return alert.innerHTML = "Enter all values!";
 
   if (!(whenGetDrivinglicence <= thisYear && whenGetDrivinglicence >= 1950))
-    return //alert("Enter the correct year of getting the driving license!");
+    return alert.innerHTML = "Enter the correct year of getting the driving license!" ;
 
   if (new Date(fromDate).getTime() >= new Date(toDate).getTime())
-    return //alert("Enter the correct dates!");
+    return alert.innerHTML = "Enter the correct date!" ;
 
+  if (thisYear - whenGetDrivinglicence < 3 && carToRent[0].category =="Premium")
+    return alert.innerHTML = "You can't rent Premium Cars"
+  
+  alert.innerHTML = "";
   setValues([
     parseInt(kilometers),
     fromDate,

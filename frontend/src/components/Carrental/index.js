@@ -12,6 +12,14 @@ const Carrental = (props) => {
   useEffect(() => {
     const fetchCars = async () => {
       const res = await axios.get("/");
+      let i = 0;
+      while (i < res.data.length) {
+        if (res.data[i].howManyCars < 1) {
+          res.data.splice(i, 1);
+        } else {
+          ++i;
+        }
+      }
       setCars(res.data);
     };
     fetchCars();

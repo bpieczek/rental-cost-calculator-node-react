@@ -103,12 +103,7 @@ function Rentcar(props) {
         </div>
       ))}
       <RentCarFormInfo />
-          <button type="submit">Next</button>
-    <div className="alert">
-      <span className="closebtn" onClick={(e)=>{console.log(e.target)}}>&times;</span>  
-      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-    </div>
-
+      <button type="submit">Next</button>
     </form>
   );
 }
