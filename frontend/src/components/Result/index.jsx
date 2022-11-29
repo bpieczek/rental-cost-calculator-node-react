@@ -21,7 +21,6 @@ function Step(name, value) {
 const Result = (props) => {
   if (props.values.length === 0) return;
   let [carRentalCost, step] = Calculate(props.values);
-  console.log(carRentalCost);
   return (
     <div id="details">
       <div className="containerSteps">

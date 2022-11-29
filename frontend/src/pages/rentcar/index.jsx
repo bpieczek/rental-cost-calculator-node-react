@@ -25,8 +25,6 @@ function Rentcar(props) {
       birthYear: obj.birthYear.value,
       rents: resList,
     };
-    console.log(data);
-    console.log(resList);
     rentCar(data);
   }
 
@@ -48,7 +46,15 @@ function Rentcar(props) {
       }
       setCars(res.data);
     };
-    fetchCars();
+
+    try {
+      fetchCars();
+    }
+    catch(err) {
+      console.log("Error: "+err)
+    }
+
+
   }, []);
 
   const handleReservationAdd = () => {
@@ -61,7 +67,6 @@ function Rentcar(props) {
   };
 
   const handleReservationRemove = (index) => {
-    console.log(index);
     const list = [...resList];
     list.splice(index, 1);
     setResList(list);

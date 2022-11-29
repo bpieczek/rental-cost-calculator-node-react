@@ -9,7 +9,12 @@ function onSubmitHandler(e) {
     subject: `${e.target.email.value} send you a message!`,
     message: e.target.message.value,
   };
-  sendMail(data);
+  try {
+    sendMail(data);
+  }
+  catch(err) {
+    console.log("Error: "+err)
+  }
 }
 
 async function sendMail(data) {

@@ -7,8 +7,8 @@ let Today = new Date().toISOString().split("T")[0];
 const thisYear = new Date().getFullYear();
 
 const Carrental = (props) => {
+  const [rangeValue, setRangeValue] = useState(500);
   const [cars, setCars] = useState();
-
   useEffect(() => {
     const fetchCars = async () => {
       const res = await axios.get("/");
@@ -22,7 +22,12 @@ const Carrental = (props) => {
       }
       setCars(res.data);
     };
-    fetchCars();
+    try {
+      fetchCars();
+    }
+    catch(err) {
+      console.log("Error: "+err)
+    }
   }, []);
 
   return (
@@ -34,13 +39,18 @@ const Carrental = (props) => {
           onChange={(event) => onChangeHandler(event, props.setValues, cars)}
         >
           <label>
-            How many kilometers:{" "}
+            <label>
+              I want to drive {rangeValue} kilometers
+            </label>
             <input
               name="kilometers"
-              type="number"
+              type="range"
               required
               min="0"
-              defaultValue="100"
+              defaultValue="500"
+              max="2000"
+              id="rangeKM"
+              onInput={(e)=> setRangeValue(e.target.value)}
             ></input>
           </label>
 

@@ -8,6 +8,9 @@
   font-size: 1.2em;
   display: flex;
   justify-content: space-evenly;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  padding: 1em;
 }
 .containerSteps p {
   color: #04aa6d;
@@ -24,7 +27,7 @@
   margin-top: 2em;
 }
 .containerCost p {
-  font-size: 175%;
+  font-size: 100%;
 }
 .containerCost {
   line-height: 0.6em;

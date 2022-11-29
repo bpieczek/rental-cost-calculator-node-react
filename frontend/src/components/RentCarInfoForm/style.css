@@ -3,15 +3,24 @@
   background-color: white;
   margin: auto auto;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  padding: 1em;
 }
 
-.RentCarFormInfo label,
 .RentCarFormInfo input,
 .RentCarFormInfo textarea {
   max-height: 50px;
   margin: 10px 20px 50px;
+  width: 29%;
+  text-align: center;
 }
-
+.RentCarFormInfo input[type=email],
+.RentCarFormInfo input[name=zipCode],
+.RentCarFormInfo input[name=address],
+.RentCarFormInfo input[name=phoneNumber] {
+  width: 45%;
+}
 .RentCarFormInfo :where(input, select, textarea, button):focus-within {
   outline: 0;
   background-color: #eee;

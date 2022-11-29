@@ -1,9 +1,7 @@
 const thisYear = new Date().getFullYear();
 export default function onChangeHandler(e, setValues, cars) {
-  console.log("ZMIANA");
 
   let form = document.getElementById("calculatorData");
-  console.log(form.kilometers);
   let kilometers = form.kilometers.value;
 
   let fromDate = form.fromDate.value;
@@ -25,7 +23,7 @@ export default function onChangeHandler(e, setValues, cars) {
 
   if (
     thisYear - whenGetDrivinglicence < 3 &&
-    carToRent[0].category == "Premium"
+    carToRent[0].category === "Premium"
   )
     return (alert.innerHTML = "You can't rent Premium Cars");
 
