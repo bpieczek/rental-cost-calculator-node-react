@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../axios";
+import {handleAlert} from "../../components/Alert"
 import RentCarForm from "../../components/RentCarForm";
 import RentCarFormInfo from "../../components/RentCarInfoForm";
 import "./style.css";
@@ -25,7 +26,13 @@ function Rentcar(props) {
       birthYear: obj.birthYear.value,
       rents: resList,
     };
-    rentCar(data);
+    try {
+      rentCar(data);
+      handleAlert("success", "Succesfully rented a car :D")
+    } catch(err){
+      handleAlert("alert", err)
+    }
+
   }
 
   async function rentCar(data) {

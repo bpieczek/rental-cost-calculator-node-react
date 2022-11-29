@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import axios from "../../axios";
-
+import {handleAlert} from "../../components/Alert"
 function onSubmitHandler(e) {
   e.preventDefault();
   let data = {
@@ -11,9 +11,10 @@ function onSubmitHandler(e) {
   };
   try {
     sendMail(data);
+    handleAlert("success", "Your email has been sent")
   }
   catch(err) {
-    console.log("Error: "+err)
+    handleAlert("alert", err)
   }
 }
 

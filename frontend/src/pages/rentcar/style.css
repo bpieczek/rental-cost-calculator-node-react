@@ -16,30 +16,7 @@ body {
   float: right;
   margin: 0;
 }
-.alert {
-  padding: 20px;
-  background-color: #04aa6d;
-  color: white;
-  margin: 0 auto;
-  width: 60%;
-  border-radius: 10px;
-  
-}
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
 .delRes {
   height: 160px;
   background-color: #f66359;

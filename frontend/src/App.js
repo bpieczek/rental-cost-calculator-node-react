@@ -6,10 +6,12 @@ import Home from "./pages/home";
 import Calculator from "./pages/calculator";
 import Rentcar from "./pages/rentcar";
 import Contact from "./pages/contact";
+import Alert from "./components/Alert";
 
 function App() {
   return (
     <div className="App">
+      <Alert />
       <Router>
         <Navbar />
         <Routes>
