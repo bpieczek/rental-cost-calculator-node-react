@@ -82,7 +82,7 @@ function Rentcar(props) {
 
   return (
     <form onSubmit={(e) => onSubmitHandler(e)}>
-      <h1>Rentcat page &#128008;</h1>
+      <h1>Rentcar page</h1>
       {resList.map((reservation, index) => (
         <div key={index} className="reservationContainer">
           <div className="togetherContainer">
