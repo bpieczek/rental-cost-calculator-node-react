@@ -9,17 +9,18 @@ function onSubmitHandler(e) {
     subject: `${e.target.email.value} send you a message!`,
     message: e.target.message.value,
   };
+  sendMail(data);
+
+}
+
+async function sendMail(data) {
   try {
-    sendMail(data);
+  await axios.post("/sendemail", data);
     handleAlert("success", "Your email has been sent")
   }
   catch(err) {
     handleAlert("alert", err)
   }
-}
-
-async function sendMail(data) {
-  await axios.post("/sendemail", data);
 }
 
 function Contact() {

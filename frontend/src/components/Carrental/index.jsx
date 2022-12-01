@@ -11,6 +11,7 @@ const Carrental = (props) => {
   const [cars, setCars] = useState();
   useEffect(() => {
     const fetchCars = async () => {
+      try {
       const res = await axios.get("/");
       let i = 0;
       while (i < res.data.length) {
@@ -21,13 +22,12 @@ const Carrental = (props) => {
         }
       }
       setCars(res.data);
-    };
-    try {
-      fetchCars();
     }
     catch(err) {
       console.log("Error: "+err)
-    }
+    }};
+    fetchCars();
+
   }, []);
 
   return (

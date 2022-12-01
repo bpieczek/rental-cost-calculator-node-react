@@ -26,21 +26,21 @@ function Rentcar(props) {
       birthYear: obj.birthYear.value,
       rents: resList,
     };
+    rentCar()
+  }
+
+  async function rentCar(data) {
     try {
-      rentCar(data);
+      await axios.post("/rentcar", data);
       handleAlert("success", "Succesfully rented a car :D")
     } catch(err){
       handleAlert("alert", err)
     }
-
-  }
-
-  async function rentCar(data) {
-    await axios.post("/rentcar", data);
   }
 
   useEffect(() => {
     const fetchCars = async () => {
+      try {
       const res = await axios.get("/");
 
       let i = 0;
@@ -52,14 +52,11 @@ function Rentcar(props) {
         }
       }
       setCars(res.data);
-    };
-
-    try {
+    }catch(err){
+      console.log("error"+err)
+    }};
       fetchCars();
-    }
-    catch(err) {
-      console.log("Error: "+err)
-    }
+
 
 
   }, []);
