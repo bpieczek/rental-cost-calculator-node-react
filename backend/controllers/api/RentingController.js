@@ -38,27 +38,30 @@ class RentingController {
         let whichCar = rent.whichCar;
         let from = new Date(rent.fromDate);
         let to = new Date(rent.toDate);
-        cars.forEach((car) => {
-          if (
-            car.howManyCars === 1 &&
-            rent.whichCar === `${car.brand} (${car.category})`
-          ) {
-            doc.forEach((renting) => {
-              if (
-                renting.whichCar === whichCar &&
-                ((renting.from.getTime() <= from.getTime() &&
-                  renting.to.getTime() >= from.getTime()) ||
-                  (renting.from.getTime() <= to.getTime() &&
-                    renting.to.getTime() >= to.getTime()))
-              ) {
-                throw res.status(422).json({
-                  message: `Car ${rent.whichCar} is not available in this period!`,
-                });
-              }
-            });
-          }
-        });
-
+        try {
+          cars.forEach((car) => {
+            if (
+              car.howManyCars === 1 &&
+              rent.whichCar === `${car.brand} (${car.category})`
+            ) {
+              doc.forEach((renting) => {
+                if (
+                  renting.whichCar === whichCar &&
+                  ((renting.from.getTime() <= from.getTime() &&
+                    renting.to.getTime() >= from.getTime()) ||
+                    (renting.from.getTime() <= to.getTime() &&
+                      renting.to.getTime() >= to.getTime()))
+                ) {
+                  throw res.status(422).json({
+                    message: `Car ${rent.whichCar} is not available in this period!`,
+                  });
+                }
+              });
+            }
+          });
+        } catch (err) {
+          console.log(err);
+        }
         renting = new Renting({
           whichCar,
           from,
