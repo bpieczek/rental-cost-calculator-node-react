@@ -12,22 +12,21 @@ const Carrental = (props) => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-      const res = await axios.get("/");
-      let i = 0;
-      while (i < res.data.length) {
-        if (res.data[i].howManyCars < 1) {
-          res.data.splice(i, 1);
-        } else {
-          ++i;
+        const res = await axios.get("/");
+        let i = 0;
+        while (i < res.data.length) {
+          if (res.data[i].howManyCars < 1) {
+            res.data.splice(i, 1);
+          } else {
+            ++i;
+          }
         }
+        setCars(res.data);
+      } catch (err) {
+        console.log("Error: " + err);
       }
-      setCars(res.data);
-    }
-    catch(err) {
-      console.log("Error: "+err)
-    }};
+    };
     fetchCars();
-
   }, []);
 
   return (
@@ -39,9 +38,7 @@ const Carrental = (props) => {
           onChange={(event) => onChangeHandler(event, props.setValues, cars)}
         >
           <label>
-            <label>
-              I want to drive {rangeValue} kilometers
-            </label>
+            <label>I want to drive {rangeValue} kilometers</label>
             <input
               name="kilometers"
               type="range"
@@ -50,7 +47,7 @@ const Carrental = (props) => {
               defaultValue="500"
               max="2000"
               id="rangeKM"
-              onInput={(e)=> setRangeValue(e.target.value)}
+              onInput={(e) => setRangeValue(e.target.value)}
             ></input>
           </label>
 
@@ -87,7 +84,7 @@ const Carrental = (props) => {
                 type="date"
                 min={Today}
                 required
-                defaultValue="2022-12-12"
+                defaultValue={Today}
               />
             </label>
           </div>
