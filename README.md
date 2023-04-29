@@ -1,15 +1,18 @@
-# Kalkulator liczenia kosztu wypożyczenia auta
+# Calculator for calculating the cost of renting a car
 
-## Zadanie zostało zrealizowane w:
+## [Link to the page](https://car-rental-frontend-bkxu.onrender.com)
 
-- Node.js, Express.js (backend)
-- React.js (Frontend)
-- MongoDB (Baza danych)
+## Technologies used:
 
-## Celem zadania było:
+![node](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![express](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![mongo](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![react](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-Sprawdzenie moich umiejętności z zakresu programowania
+## The tasks were created by:
+- Backend - [Bpieczek](https://github.com/bpieczek)
+- Frontend - [Sowiastyy](https://github.com/Sowiastyy)
 
-## Proces tworzenia i napotkane problemy:
+## Important!
 
-Na początku wziąłem sie za stworzenia backendu i połączenie go z bazą danych co nie sprawiło większych problemów. Potem zacząłem tworzyć aplikacje ze storny frontendu i tu zaczęły się problemy. Na początku wszystko szło gładko do momentu pobierania wartości z formularza. Znalazłem sposób z użyciem createRef() które tutaj użyłem (Jeśli istnieje prostrzy sposób ładnie prosze o kometarz). Kolejnym drobnym problemem było połączenie ze sobą dwóch komponentów tak żeby można było przesyłać dane mędzie nimi jednak z tym uporałem się dość szybko. Ostatnią rzeczął był problem ze StrictModem który wywoływał jedną z moich funkcji 2 razy, naprawiłem to po porstu usuwając StrictMode mam nadzieje że nie jest to sprzeczne z żadnym standardem, ani nic podobnego. Na końcu dodałem kilka styli i oto gotowa aplikacja.
+### The website was created for demonstration purposes. It's not really for car rental. Information about cars, prices, etc. do not coincide with reality
