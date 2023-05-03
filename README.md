@@ -1,5 +1,7 @@
 # Calculator for calculating the cost of renting a car
 
+If something doesn't load, sorry, free hosting is quite slow
+
 ## [Link to the page](https://car-rental-frontend-bkxu.onrender.com)
 
 ## Technologies used:
